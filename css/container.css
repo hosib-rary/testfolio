@@ -1,0 +1,417 @@
+* { margin: 0; padding: 0; box-sizing: border-box;}
+    
+    body, html { font-family: 'Pretendard', sans-serif; width: 100%; }
+    .screen_out{
+        display: none;
+    }
+    ::-webkit-scrollbar {width:0px;}
+
+    h2 {
+      text-align: center; font-size:3rem; font-family: "Playball", cursive;
+      font-weight: 400;
+      display: block;
+      color: #1d634e;
+    }
+    header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    header video {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 100%; height: 100%; object-fit: cover; z-index: -1;
+    }
+    
+    #typingWrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      color: rgb(190, 231, 223);
+      font-size: 5rem;
+    }
+    
+    
+    .cursor {
+      font-weight: bold;
+      color: #1d634e;
+      animation: blink 0.7s infinite;
+      /* 줄 간격 밀림 방지용 */
+      line-height: 1;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    
+    
+    
+    /*마우스 Scroll image 액션*/
+    
+    #click {	
+        max-width:120px; margin:auto; margin-top:85vh;
+    
+        text-align:center;
+    }
+    #click i {
+        font-size:2rem; color:rgb(255, 255, 255); display:block;
+        animation:upDown 1s infinite;
+      display: flex; 
+      align-self: center;
+    }
+    @keyframes upDown {  
+      from 	{transform:translateY(-10pt); opacity:0;}
+        to 		{transform:translateY(0pt);   opacity:1;}
+    }
+    
+    #click a { 
+      margin-top: 20px;
+      color:rgb(159, 190, 194); text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 12px rgba(80, 80, 80, 0.363);
+    }
+    
+    #click a:hover {
+      text-shadow: 0 4px 12px rgb(83, 189, 157);
+    }
+    
+    .scImage{
+        width: 70%;
+        height: 70%;
+        margin: auto;
+        animation-name: mouse;
+        animation-duration: 2s;
+        animation-iteration-count:infinite;
+    }
+    
+    @keyframes mouse {
+        from {opacity: 0;}
+        to{opacity: 100%;}
+    }
+    
+    /* *마우스 Scroll image 액션 종료 */
+    
+    
+    
+    
+    
+    
+    /*nav 구간 */
+    
+    #mainNav {
+      position: fixed; top: 0; width: 100%; padding: 5px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: transparent; color: rgb(63, 218, 184); z-index: 1000;
+    }
+    
+    #mainNav #menu { 
+      display: flex; gap: 40px; 
+    }
+    #mainNav #menu a {
+      color: rgb(63, 218, 184);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      /* 초기에는 민트 텍스트 또는 배경 밝은 이미지면 흰색 그대로도 가능 */
+    }
+    #mainNav #menu a:hover { 
+      text-shadow: 2px 4px 21px rgb(56, 204, 135); 
+    }
+    
+    
+    /*nav.active 구간 */
+    
+    @keyframes underlineGrow {
+      0% {
+        width: 0;
+        opacity: 0;
+      }
+      100% {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+    
+    
+    
+    
+    #mainNav.active {
+      background-color: #9bddc9; 
+      color: rgb(255, 255, 255);
+      box-shadow: 0 4px 12px rgba(29, 99, 78, 0.4);
+      padding: 8px 20px;
+    }
+    
+    
+    #mainNav.active #menu a {
+      position: relative;
+      color: rgb(14, 126, 92);
+      text-decoration: none;
+    }
+    
+    #mainNav.active #menu a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      height: 2px;
+      background-color: rgb(56, 112, 77);
+      width: 0;
+      animation: none;
+    }
+    
+    #mainNav.active #menu a:hover::after {
+      animation: underlineGrow 0.4s ease forwards;
+    }
+    
+       
+    
+    
+    
+    .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+    .hamburger span { width: 25px; height: 3px; background: white; border-radius: 2px; }
+    .side-menu {
+      position: fixed; top: 0; right: -250px; width: 250px; height: 100%;
+      background-color: rgba(0, 0, 0, 0.9); display: flex; flex-direction: column;
+      justify-content: center; align-items: center; transition: right 0.3s ease;
+      z-index: 999;
+    }
+    
+    .side-menu.active { right: 0; }
+    .side-menu a {
+      color: white; text-decoration: none; font-size: 1.2rem; margin: 10px 0;
+    }
+    
+    
+    
+    
+    
+    
+    
+    section { padding: 100px 20px; width: 100%; }
+    
+    #section2>h2 { 
+      padding: 30px;
+    }
+    
+    #sectionTwo{
+      background-image: url(../img/bg0002.png);
+    }
+    
+    #sectionTwo> #profile {
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      margin-top: 50px;
+      padding:0 50px;
+    }
+    
+    #Two-corner1{
+      text-align: center; 
+      padding: 20px;
+      flex: 1;
+      height: 100%;
+    }
+    
+    #Two-corner2{
+      text-align: center; 
+      padding: 20px;
+      flex: 1;
+      height: 100%;
+      line-height: 180%;
+    }
+    
+    
+    #Two-corner3{
+      padding: 60px;
+      text-align: center;
+      flex: 0.9;
+    }
+    
+    #Two-corner3 span { padding: 10px 0;
+    }
+    
+    #sectionTwo>#profile img {
+      width: 40%;
+      margin-bottom: 20px;
+    }
+    #sectionTwo p {text-align: center; line-height: 180%;}
+    #sectionTwo h4{
+      margin-top: 20px; margin-bottom: 10px;
+    }
+    
+    
+    .progress-bar { margin: 10px 0; }
+    .progress-bar span { display: block; margin-bottom: 5px;}
+    .progress-bar progress { width: 70%; color: #9bddc9; 
+      background: linear-gradient(90deg,rgba(29, 99, 78, 1) 0%, rgba(107, 255, 169, 1) 100%); 
+      border-radius: 40px;
+    }
+    
+    progress::-webkit-progress-bar {
+      background-color: #eee; /* 바탕 */
+      border-radius: 20px;
+    }
+    
+    progress::-webkit-progress-value {
+      background-color: #76c7c0; /* 실제 바 색 */
+      border-radius: 20px;
+    }
+    
+    progress::-moz-progress-bar {
+      background-color: #76c7c0;
+      border-radius: 20px;
+    }
+    
+    /*여기부터 웹 포트폴리오 구간 시작*/
+    
+    
+    
+    #webPortfolio{ 
+      background: #fcfffd;
+      min-height: 100vh; /* 화면 높이 기준으로 최소 1스크린 채우기 */
+    }
+    
+    #webPortfolio h2 {
+      text-align: center;
+      color: #1d634e;
+      padding-bottom: 200px;
+    }
+    .portfolio-item {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      margin: auto;
+      margin-bottom: 400px;
+      width: 70%;
+      border: 1px solid red;
+      padding: 20px 20px;
+      justify-content:center;
+      align-items: center;
+    
+    }
+    .portfolio-left {
+      flex: 1;
+    }
+    
+    .portfolio-left h3 {
+      color: #666;
+      text-align: center;
+      margin: 200px;
+    }
+    
+    /*         .portfolio-left hr {
+      opacity: 40%; color: #666; width: 50%;
+    } */
+    
+    .portfolio-left ol {
+      margin: auto;
+      width: 80%;
+      padding: 0 40px;
+      list-style: none;
+      line-height: 220%;
+    }
+    
+    .portfolio-left ol li:nth-child(2), .portfolio-left ol li:last-child {
+      background: #c2ece013
+    }
+    
+    .portfolio-left ol li {
+      padding: 3px;
+    
+    }
+    
+    .portfolio-left ol li p {
+      color: #888;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+    
+    
+    .portfolio-left ol li p span {
+      float: right;
+      color: #444;
+      font-weight: normal;
+    
+    }
+    
+    .button-group {
+      margin: auto;
+      padding: 0 100px;
+      margin-top: 30px; 
+      display: flex; 
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    
+    .button-group button {
+      margin-right: 10px;
+      padding: 5px 20px;
+      border-radius: 40px;
+      border: 1px solid #9bddc9;
+      background-color: #ffffff;
+      color: #1d634e;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button-group button:hover {
+      font-weight: bold;
+      background-color: #1d634e;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    .portfolio-right {
+      border: 1px solid red;
+      flex: 1;  display:flex;  
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }        
+    .portfolio-right img {
+      width: 45%;
+      border: 1px dashed #cc4848;
+      border-radius: 20px;
+      text-align: center;
+      }
+    
+    
+    
+    /*여기부터 웹 포트폴리오 구간 종료*/
+    
+    #sectionThree { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    #sectionThree img { width: 100%; cursor: pointer; }
+
+    /*갤러리코너 이미지 정렬*/
+    #gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 30px;
+    }
+    
+    #gallery img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+    .pagination { text-align: center; margin-top: 20px; margin: auto;} 
+    .pagination button { margin: 0 25px; padding: 5px 10px; 
+      cursor: pointer; border-radius: 50%; background: #9cd1c1; border: none;}
+    
+    form { display: flex; flex-direction: column; gap: 10px; }
+    footer { text-align: center; padding: 40px; background: #111; color: white; }
+    
+    @media screen and (max-width: 768px) {
+      .menu { display: none; }
+      .hamburger { display: flex; }
+      #sectionTwo { grid-template-columns: 1fr; }
+      #sectionThree { grid-template-columns: 1fr 1fr; }
+    }
