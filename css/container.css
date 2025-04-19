@@ -107,13 +107,11 @@
     /*nav 구간 */
     
     #mainNav {
-      background-color: #65b49c;
+      background-color: #65b4a9;
       padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: white;
-      box-shadow: 0 4px 12px rgba(29, 99, 78, 0.4);
       position: fixed;
       width: 100%;
       top: 0;
@@ -125,7 +123,7 @@
     }
     #mainNav #menu a {
       margin-left: 20px;
-      color: rgb(22, 126, 74);
+      color: rgb(56, 35, 32);
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
@@ -157,7 +155,7 @@
     #mainNav.active {
       background-color: #d0fff1; 
       color: rgb(255, 255, 255);
-      box-shadow: 0 4px 12px rgba(29, 99, 78, 0.4);
+      box-shadow: 0 4px 12px rgba(100, 194, 166, 0.219);
       padding: 8px 20px;
     }
     
