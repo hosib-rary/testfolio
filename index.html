@@ -4,8 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KEYTREE 포트폴리오</title>
   <script
-  src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-  integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
   crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
   <script src="./js/basic.js"></script>
@@ -17,26 +17,25 @@
     <video src="./video/13042-244747053_small.mp4" autoplay muted loop playsinline></video>
     <nav id="mainNav">
       <div class="logo">
-        <a href="index.html">
-          <img id="logo" src="./img/topLogo.png" alt="로고">
-        </a>
+        <a href="index.html"><img src="img/topLogo.png" alt="로고"></a>
       </div>
       <div id="menu">
         <a href="#sectionOne">Home</a>
         <a href="#sectionTwo">About</a>
-        <a href="#webPortfolio">Web Portfolio</a>
-        <a href="#sectionThree">Gallery</a>
-        <a href="#sectionFour">Contact</a>
+        <a href="#sectionThree">Web Portfolio</a>
+        <a href="#sectionFour">Gallery</a>
+        <a href="#contactSection">Contact</a>
       </div>
       <div class="hamburger" id="hamburgerBtn">
-        <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
       </div>
     </nav>
     <div class="side-menu" id="sideMenu">
       <a href="#sectionOne">Home</a>
       <a href="#sectionTwo">About</a>
-      <a href="#sectionThree">Gallery</a>
-      <a href="#sectionFour">Contact</a>
+      <a href="#sectionThree">Web Portfolio</a>
+      <a href="#sectionFour">Gallery</a>
+      <a href="#contactSection">Contact</a>
     </div>
     <p id="typingWrapper">
       <span id="typing"></span><span class="cursor">|</span>
@@ -54,7 +53,7 @@
   <main>
     <!--Intro-->
     <section id="sectionOne">
-      <h2 class="screen_out">HOME</h2>
+      <h2 class="hidden">HOME</h2>
     </section>
     <!--About me-->
     <section id="sectionTwo">
@@ -78,7 +77,7 @@
         <div id="Two-corner2">
             <h3>Education & Experiences</h3>
             <h4>Education</h4>
-            <p>2025.03 - 2025.07 : 라인인컴퓨터아트학원 [UI/UX웹앱디자인&프론트엔드개발과정] 수료</p>
+            <p>2025.03 - 2025.07 : 라인인컴퓨터아트학원 <br>[UI/UX웹앱디자인&프론트엔드개발과정] 수료예정</p>
             <p>2020.03 - 2021.07 : 한국방송통신대학교 일본학과 3학년 휴학중</p>
             <p>2010.03 - 2012.02 : 부산여자대학교 음악학과 음악치료학 전공 전문학사 졸업</p>
             <br>
@@ -114,22 +113,14 @@
               <progress value="60" max="100"></progress>
             </div>
             <div class="progress-bar">
-              <span>Vanilla Javascripit</span>
-              <progress value="40" max="100"></progress>
-            </div>
-            <div class="progress-bar">
               <span>React</span>
               <progress value="40" max="100"></progress>
-            </div>
-            <div class="progress-bar">
-              <span>Blender</span>
-              <progress value="70" max="100"></progress>
             </div>
         </div>
       </div>  
     </section>
     <!--웹 포트폴리오 코너 시작-->
-    <section id="webPortfolio">
+    <section id="sectionThree">
       <h2>Web Portfolio</h2> 
           <div id="site01" class="portfolio-item">
               <div class="portfolio-left">
@@ -221,16 +212,32 @@
     </section>
     <!--웹 포트폴리오 갤러리 끝-->
     <!--Portfolio Gallery-->
-    <section id="sectionThree">
+    <section id="sectionFour">
+      <!--갤러리 메뉴 제목구간-->
       <h2>Gallery</h2>
+      <!--제목구간 종료-->
+      <!-- 갤러리 이미지들 여기에 렌더링됨 -->
       <div id="gallery"></div>
+      <!--페이지 네이션-->
       <div class="pagination" id="pagination"></div>
     </section>
+      <!-- Lightbox -->
+    <div id="lightbox" class="hidden">
+      <div class="lightbox-inner">
+        <span id="lightbox-close">&times;</span>
+        <div class="lightbox-left">
+          <img id="lightbox-img" src="" alt="라이트박스 이미지">
+        </div>
+        <div class="lightbox-right">
+          <p id="lightbox-text"></p>
+        </div>
+      </div>
+    </div>
 
     <!--Contact-->
-    <section id="sectionFour">
+    <section id="sectionFive">
       <h2>Contact</h2>
-      <form action="mailto:your_email@example.com" method="POST" enctype="text/plain">
+      <form action="mailto:ricatan@naver.com" method="POST" enctype="text/plain">
           <label for="name">이름</label>
           <input type="text" name="name" id="name" required>
           <label for="email">이메일</label>
