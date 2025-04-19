@@ -392,7 +392,6 @@
     }
     
     .portfolio-right {
-      border: 1px solid red;
       flex: 1;  display:flex;  
       justify-content: center;
       align-items: center;
