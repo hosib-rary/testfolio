@@ -1,7 +1,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box;}
     
-    body, html { font-family: 'Pretendard', sans-serif; width: 100%; }
-    .screen_out{
+    body, html { 
+      font-family: 'Pretendard', sans-serif; width: 100%; 
+    }
+    .hidden{
         display: none;
     }
     ::-webkit-scrollbar {width:0px;}
@@ -105,21 +107,32 @@
     /*nav 구간 */
     
     #mainNav {
-      position: fixed; top: 0; width: 100%; padding: 5px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-      background: transparent; color: rgb(63, 218, 184); z-index: 1000;
+      background-color: #65b49c;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 12px rgba(29, 99, 78, 0.4);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
     
     #mainNav #menu { 
       display: flex; gap: 40px; 
     }
     #mainNav #menu a {
-      color: rgb(63, 218, 184);
+      margin-left: 20px;
+      color: rgb(22, 126, 74);
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
       /* 초기에는 민트 텍스트 또는 배경 밝은 이미지면 흰색 그대로도 가능 */
     }
+
+
     #mainNav #menu a:hover { 
       text-shadow: 2px 4px 21px rgb(56, 204, 135); 
     }
@@ -142,7 +155,7 @@
     
     
     #mainNav.active {
-      background-color: #9bddc9; 
+      background-color: #d0fff1; 
       color: rgb(255, 255, 255);
       box-shadow: 0 4px 12px rgba(29, 99, 78, 0.4);
       padding: 8px 20px;
@@ -213,25 +226,38 @@
     }
     
     #Two-corner1{
+      margin: 40px 10px;
+      padding: 10px 0;
       text-align: center; 
-      padding: 20px;
       flex: 1;
       height: 100%;
+      border: 1px dashed #1d634e;
+      background-color: #ffffffa1;
+      line-height: 180%;
+      border-radius: 40px;
     }
     
     #Two-corner2{
-      text-align: center; 
+      margin: 0 10px;
       padding: 20px;
+      text-align: center; 
       flex: 1;
       height: 100%;
       line-height: 180%;
+      border: 1px dashed #1d634e;
+      background-color: #ffffffa1;
+      border-radius: 40px;
     }
     
     
     #Two-corner3{
-      padding: 60px;
+      margin: 0 10px;
+      padding: 20px;
       text-align: center;
       flex: 0.9;
+      border: 1px dashed #1d634e;
+      background-color: #ffffffa1;
+      border-radius: 40px;
     }
     
     #Two-corner3 span { padding: 10px 0;
@@ -273,12 +299,12 @@
     
     
     
-    #webPortfolio{ 
+    #sectionThree{ 
       background: #fcfffd;
       min-height: 100vh; /* 화면 높이 기준으로 최소 1스크린 채우기 */
     }
     
-    #webPortfolio h2 {
+    #sectionThree h2 {
       text-align: center;
       color: #1d634e;
       padding-bottom: 200px;
@@ -386,15 +412,25 @@
     
     /*여기부터 웹 포트폴리오 구간 종료*/
     
-    #sectionThree { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    #sectionThree img { width: 100%; cursor: pointer; }
+    #sectionFour{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    #sectionFour img { width: 100%; cursor: pointer; }
 
     /*갤러리코너 이미지 정렬*/
     #gallery {
+      background-color: #d8f8f0;
+      padding: 100px 40px 40px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .gallery-image {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     
     #gallery img {
@@ -402,11 +438,65 @@
       max-width: 100%;
       height: auto;
     }
+
+    /*라이트 박스 css 먼저 진행*/
+
+    #lightbox.hidden {
+      display: none;
+    }
+    
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    .lightbox-inner {
+      background: white;
+      display: flex;
+      padding: 20px;
+      border-radius: 12px;
+      gap: 30px;
+      position: relative;
+      max-width: 800px;
+      width: 90%;
+    }
+    
+    #lightbox-img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    
+    #lightbox-text {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+    
+    #lightbox-close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+    }
+    /*라이트박스 종료, 페이지 네이션시작*/
+
+
+
     .pagination { text-align: center; margin-top: 20px; margin: auto;} 
     .pagination button { margin: 0 25px; padding: 5px 10px; 
       cursor: pointer; border-radius: 50%; background: #9cd1c1; border: none;}
     
-    form { display: flex; flex-direction: column; gap: 10px; }
+    form { display: flex; flex-direction: column; gap: 10px; margin: auto; width: 60%; padding: 20px;} 
     footer { text-align: center; padding: 40px; background: #111; color: white; }
     
     @media screen and (max-width: 768px) {
