@@ -107,7 +107,7 @@
     /*nav 구간 */
     
     #mainNav {
-      background-color: #65b4a9;
+      background-color: #4caa9e;
       padding: 10px 20px;
       display: flex;
       justify-content: space-between;
@@ -127,7 +127,6 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
-      /* 초기에는 민트 텍스트 또는 배경 밝은 이미지면 흰색 그대로도 가능 */
     }
 
 
@@ -328,10 +327,7 @@
       text-align: center;
       margin: 200px;
     }
-    
-    /*         .portfolio-left hr {
-      opacity: 40%; color: #666; width: 50%;
-    } */
+
     
     .portfolio-left ol {
       margin: auto;
@@ -408,82 +404,104 @@
     
     /*여기부터 웹 포트폴리오 구간 종료*/
     
-    #sectionFour{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    #sectionFour img { width: 100%; cursor: pointer; }
+/*     #sectionFour{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }  요건 주석 처리해놨어. */
 
     /*갤러리코너 이미지 정렬*/
-    #gallery {
-      background-color: #d8f8f0;
-      padding: 100px 40px 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      justify-items: center;
+    .page-gallery {
+      visibility: hidden; /* display 대신 visibility 사용 */
+      opacity: 0; /* opacity를 0으로 만들어 투명하게 숨기기 */
+      transition: opacity 0.5s ease-in-out; /* 부드럽게 전환되도록 설정 */
+      display: flex;
+      justify-content: center;  /* 가로로 중앙 정렬 */
+      align-items: center;      /* 세로로 중앙 정렬 */
+      padding: 20px 0;
+      flex-wrap: wrap;  /* 이미지가 한 줄에 다 들어가지 않으면 줄 바꿈 */
+      margin: auto;
+      text-align: center;
     }
 
-    .gallery-image {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* 페이지 전환 시 보이게 설정 */
+    .page-gallery.active {
+      visibility: visible; /* 활성화되면 보이도록 설정 */
+      opacity: 1; /* 투명도를 1로 설정 */
+    }
+
+    .page-gallery ul {
+      display: flex;
+      justify-content: center;  /* 요소 간 간격 조정 */
+      flex-wrap: wrap;  /* 화면에 맞게 줄바꿈 */
+      padding: 0;
+      list-style: none;  /* 기본 리스트 스타일 제거 */
+      flex-direction: column;
     }
     
-    #gallery img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
+    .page-gallery li {
+      flex: 1 1 30%;           /* 각 li가 30% 넓이를 차지, 화면 크기에 맞게 조정 */
+      padding: 10px;      /* 각 이미지 간격 설정 */
+    }
+    
+    .page-gallery img {
+      max-width: 100%;  /* 이미지 크기를 li 안에서 채우도록 설정 */
+      border-radius: 10px;  /* 이미지에 둥근 모서리 추가 */
+    }
+
+    .page-gallery img {
+      max-width: 20%;  /* 한줄에 3개씩 */
+      margin: 10px;     /* 이미지 간격 */
+    }
+
+    #pagination {
+      margin: auto; text-align: center;
+    }
+    #pagination button {
+      margin: 5px;
+      padding: 10px;
+      background-color: #9bddc9;
+      border: none;
+      cursor: pointer;
+    }
+    
+    #pagination button:hover {
+      background-color: #1d634e;
+      color: white;
     }
 
     /*라이트 박스 css 먼저 진행*/
 
-    #lightbox.hidden {
-      display: none;
-    }
-    
-    #lightbox {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    
-    .lightbox-inner {
-      background: white;
-      display: flex;
-      padding: 20px;
-      border-radius: 12px;
-      gap: 30px;
-      position: relative;
-      max-width: 800px;
-      width: 90%;
-    }
-    
-    #lightbox-img {
-      max-width: 300px;
-      border-radius: 10px;
-    }
-    
-    #lightbox-text {
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.6;
-      max-width: 300px;
-    }
-    
-    #lightbox-close {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      color: #888;
-      cursor: pointer;
-    }
+    /* 라이트박스 스타일 */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: none; /* 처음엔 숨겨둠 */
+}
+
+#lightbox .lightbox-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#lightbox .lightbox-left img {
+  width: 500px;
+}
+
+#lightbox #lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
     /*라이트박스 종료, 페이지 네이션시작*/
 
 
@@ -495,6 +513,8 @@
     form { display: flex; flex-direction: column; gap: 10px; margin: auto; width: 60%; padding: 20px;} 
     footer { text-align: center; padding: 40px; background: #111; color: white; }
     
+
+    /*미디어 쿼리 */
     @media screen and (max-width: 768px) {
       .menu { display: none; }
       .hamburger { display: flex; }
